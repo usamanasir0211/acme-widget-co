@@ -1,0 +1,33 @@
+$LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
+
+require "acme/catalog"
+require "acme/delivery_rules"
+require "acme/offers/buy_one_get_second_half"
+require "acme/basket"
+
+catalog = Acme::Catalog.new([
+  { code: "R01", name: "Red Widget",   price_cents: 3295 },
+  { code: "G01", name: "Green Widget", price_cents: 2495 },
+  { code: "B01", name: "Blue Widget",  price_cents:  795 }
+])
+
+delivery = Acme::DeliveryRules.new([
+  { upto_cents: 5000, fee_cents: 495 },   
+  { upto_cents: 9000, fee_cents: 295 },  
+  { upto_cents: Float::INFINITY, fee_cents: 0 } 
+])
+
+offers = [
+  Acme::Offers::BuyOneGetSecondHalf.new("R01")
+]
+
+basket = Acme::Basket.new(catalog: catalog, delivery_rules: delivery, offers: offers)
+
+if ARGV.empty?
+  warn "Usage: bin/checkout CODE [CODE ...]"
+  exit 1
+end
+
+ARGV.each { |code| basket.add(code) }
+
+puts basket.total_formatted

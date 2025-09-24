@@ -18,9 +18,13 @@ All money is handled in **integer cents** to avoid floating-point errors. Where 
 
 ### Assumptions
 - Currency is USD. No tax/VAT.
+
 - Delivery fee depends on the **discounted subtotal**.
+
 - Offers are additive and applied on top of each other (if more were added later). Order doesn't matter as they compute **discounts**, not mutated prices.
+
 - Unknown product codes raise an error.
+
 
 ### Example
 Given products:
