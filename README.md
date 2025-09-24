@@ -1,7 +1,6 @@
 # Acme Widget Co — (Ruby)
 
-A tiny, extensible checkout engine that models **products**, **offers**, and **delivery rules** with clean separation of concerns and dependency injection.
-
+## This project is a tiny, extensible checkout engine for e-commerce. It uses a clean separation of concerns and dependency injection to cleanly model and manage products, special offers, and delivery rules. It's designed for developers who need a flexible, lightweight, and customizable checkout system.
 
 ---
 
