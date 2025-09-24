@@ -1,4 +1,4 @@
-# Acme Widget Co — Basket POC (Ruby)
+# Acme Widget Co — (Ruby)
 
 A tiny, extensible checkout engine that models **products**, **offers**, and **delivery rules** with clean separation of concerns and dependency injection.
 
